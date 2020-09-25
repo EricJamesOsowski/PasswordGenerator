@@ -3,6 +3,8 @@ A simple form that generates a unique password given paramaters from the user wi
 
 # Installation
 No installation is necessary! Simply open "index.html" in your preffered browser.
+Alternately it is available at the following URL:
+https://ericjamesosowski.github.io/PasswordGenerator/
 
 # Usage
 Click the "generate password" button and follow the series of prompts.
