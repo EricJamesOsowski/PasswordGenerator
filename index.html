@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+
+ 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <div class="custom-card">
+      <div class="custom-card-header">
+        <h2>Generate a Password</h2>
+      </div>
+      <div class="custom-card-body">
+        <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+      </div>
+      <div class="custom-card-footer">
+        <button id="generate" class="custom-btn">Generate Password</button>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="passwordGeneratorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Password Criteria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-check padded">
+            <!--------------onchange attribute allows you to call functions when HTMl elements change value--------------------->
+            <input class="form-check-input" type="checkbox" value="" id="useSpecialsCheck" onchange="validateInput()">
+            <label class="form-check-label" for="defaultCheck1">
+              Use special characters?
+            </label>
+          </div>
+          <div class="form-check padded">
+            <input class="form-check-input" type="checkbox" value="" id="useUppersCheck" onchange="validateInput()">
+            <label class="form-check-label" for="defaultCheck1">
+              Use uppercase characters?
+            </label>
+          </div>
+          <div class="form-check padded">
+            <input class="form-check-input" type="checkbox" value="" id="useLowersCheck" onchange="validateInput()">
+            <label class="form-check-label" for="defaultCheck1">
+              Use lowercase characters?
+            </label>
+          </div>
+          <div class="form-check padded">
+            <input class="form-check-input" type="checkbox" value="" id="useNumbersCheck" onchange="validateInput()">
+            <label class="form-check-label" for="defaultCheck1">
+              Use numbers?
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- THANK YOU STACK OVERFLOW class mx-auto will automatically fill in horizontally until content is centered -->
+          <button type="button" class="btn btn-primary mx-auto" id="continue-button" disabled="true">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-----END MODAL-->
+
+  <!-- SECOND MODAL  -->
+  <div class="modal fade" id="passwordLengthModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Password Criteria Part Two</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="centered">
+            <br>Slide to select password length <br>
+        <!--------------oninput attribute allows you to call functions when HTMl elements change value--------------------->
+            <input type="range" min="8" max="128" id="choosePassLengthSlider" oninput="updateSliderValue()">
+            <br>
+            <div id="sliderValueDisplay">68
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- THANK YOU STACK OVERFLOW class mx-auto will automatically fill in horizontally until content is centered -->
+          <button type="button" class="btn btn-primary mx-auto" id="finalPasswordGenerator">Generate Password</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+<!-----END MODAL-->
+
+  <script src="script.js"></script>
+</body>
+</html>
